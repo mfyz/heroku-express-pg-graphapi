@@ -1,0 +1,46 @@
+type Publisher {
+	id: Int!
+	name: String
+	books: [Book]
+}
+
+type Book {
+	id: Int!
+	title: String
+	publisher: Publisher
+	likes: Int
+}
+
+input userData {
+	fullname: String
+	email: String
+	role: String
+}
+
+type User {
+	id: ID
+	fullname: String
+	email: String
+	roleid: String
+	role: Role
+}
+
+type Role {
+	id: String!
+	name: String!
+}
+
+type Query {
+	foo: String
+	getMessage: String
+	books(publisherId: Int): [Book]
+	publishers: [Publisher]
+	roles: [Role]
+	users: [User]
+}
+
+type Mutation {
+	setMessage (message: String): String
+    likeBook (bookId: Int!): Book
+	createUser (newUserInfo: userData): User
+}
