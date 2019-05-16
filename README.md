@@ -54,7 +54,16 @@ Getting relational fields mixed with DB stored or static data:
 Filtering data
 
 ```
-
+{
+  books(publisherId: 2) {
+    id
+    title
+    publisher {
+	  id
+      name
+    }
+  }
+}
 ```
 
 Posting data using mutations:
@@ -71,7 +80,7 @@ mutation {
 }
 ```
 
-A dynamic, db example
+A dynamic, db example of the post data
 
 ```
 mutation {
